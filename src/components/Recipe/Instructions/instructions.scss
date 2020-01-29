@@ -1,0 +1,18 @@
+.instructions {
+  margin: 0 3em;
+  counter-reset: instruction;
+
+  &-instruction {
+    margin: 1em 0;
+
+    &::before {
+      color:#ddd;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right:.1em;
+      font-size:5em;
+      counter-increment: instruction;
+      content: counter(instruction);
+    }
+  }
+}

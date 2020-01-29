@@ -1,0 +1,27 @@
+
+.task {
+  border-radius: 0.7em;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  margin-bottom: .3em;
+  padding: .6em;
+  font-size: 1.2em;
+  text-align: left;
+
+  &-label{
+    margin-left: .5em; 
+  }
+  &--done{
+    text-decoration: line-through;
+    opacity: .5;
+  }
+  &--fav {
+    background-color: #E0C600;
+    border-color: darken(#E0C600, 10%);
+  }
+  &-fav, &-trash {
+    float: right;
+    margin: 0 .5em;
+    cursor: pointer;
+  }
+}

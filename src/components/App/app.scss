@@ -1,0 +1,16 @@
+@import 'src/styles/vars';
+
+.nav {
+  position:fixed;
+  left:0;
+  top:0;
+  width:25%;
+  height:100vh;
+  background:darken($main-color, 10%);
+  padding:2em;
+}
+
+.content {
+  margin-left:25%;
+}
+

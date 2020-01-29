@@ -1,0 +1,14 @@
+.ingredients {
+  text-align: center;
+  margin:5em 0; 
+
+  &-ingredient {
+    margin:1em;
+    color:#444;
+
+    strong {
+      font-weight: bold;
+      color:black;
+    }
+  }
+}

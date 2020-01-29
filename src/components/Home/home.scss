@@ -1,0 +1,14 @@
+.home {
+  padding:5em;
+
+  &-title {
+    font-size:4em;
+    margin-bottom:.2em;
+  }
+
+  &-content {
+    letter-spacing: .03em;
+    font-size:1.2em;
+    opacity:.4;
+  }
+}
