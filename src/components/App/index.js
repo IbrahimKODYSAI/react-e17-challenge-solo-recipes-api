@@ -1,45 +1,48 @@
 // == Import : npm
 import React from 'react';
-import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Route, Switch } from 'react-router-dom';
 
 // == Import : local
 import Home from 'src/components/Home';
-import Recipe from 'src/components/Recipe';
-import Nav from 'src/components/Nav';
-import Rlist from 'src/components/Rlist';
-// import LoginPage from 'src/components/Login';
-import { getRecipeBySlug } from 'src/utils';
+// je charge mes containers
+import Recipe from 'src/containers/Recipe';
+import Nav from 'src/containers/Nav';
 import Error from 'src/components/Error';
+import Rlist from 'src/components/Rlist'
 import './app.scss';
 
-import recipes from 'src/data/recipes';
-
 // == Composant
-const App = () => (
+const App = ({ loading }) => (
   <div id="app">
-    <nav className="nav">
-      <Nav recipes={recipes} />
-    </nav>
-    <main className="content">
-      <Route path="/" exact component={Home} />
-      {/* <Route path="/login" exact component={LoginPage} /> */}
-      <Route path="/list" exact component={Rlist} />
-      <Route
-        path="/recipe/:slug"
-        render={({ match: { params: { slug } } }) => {
-          const recipe = getRecipeBySlug(recipes, slug);
-          if (!recipe) {
-            return (
-              <Route component={Error} />
-            );
-          } return (
-            <Recipe recipe={getRecipeBySlug(recipes, slug)} />
-          );
-        }}
-      />
-    </main>
+    {loading && (
+      <div id="loading">Veuillez patienter</div>
+    ) }
+    {!loading && (
+      <>
+        <nav className="nav">
+          <Nav />
+        </nav>
+        <main className="content">
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route
+              path="/recipe/:slug"
+              component={Recipe}
+            />
+            <Route path="/list" exact component={Rlist} />
+            <Route component={Error} />
+          </Switch>
+        </main>
+      </>
+    )}
   </div>
 );
+
+App.propTypes = {
+  loading: PropTypes.bool.isRequired,
+};
+
 
 // == Export
 export default App;

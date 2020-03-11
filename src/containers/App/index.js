@@ -2,20 +2,19 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import Nav from 'src/components/Nav';
+import App from 'src/components/App';
 
 const mapStateToProps = state => ({
-  recipes: state.recipes,
+  loading: state.loading,
 });
 
 const mapDispatchToProps = {};
 
 // Container
-const NavContainer = connect(
+const AppContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Nav);
+)(App);
 
 // == Export
-export default NavContainer;
-
+export default AppContainer;

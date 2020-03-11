@@ -7,10 +7,14 @@
   width:25%;
   height:100vh;
   background:darken($main-color, 10%);
-  padding:2em;
+  padding:1em 0;
 }
 
 .content {
   margin-left:25%;
 }
 
+#loading {
+  text-align: center;
+  padding:2em;
+}

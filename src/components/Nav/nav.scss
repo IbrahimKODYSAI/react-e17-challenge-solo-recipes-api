@@ -3,21 +3,19 @@
 .menu  {
 
   &-item {
-    overflow: hidden;
-    text-align: left;
 
     &-link {
       display:block;
       padding:1em 2em;
       color:$link-color;
-      margin: 0.2em;
+      transition:background-color .2s ease;
 
       &:hover {
         background-color:darken($main-color, 5%);
       }
 
       &--active {
-        background:$main-color;
+        background-color:$main-color;
       }
     }
   }

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // Imports locaux
 
 // Composants
-// ici on a isolé nos li dans un composant à part pour plus de modularité
 const Ingredient = ({ quantity, name }) => (
   <li className="ingredients-ingredient">
     <strong>{quantity}</strong> {name}

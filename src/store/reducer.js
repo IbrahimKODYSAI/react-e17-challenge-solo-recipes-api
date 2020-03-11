@@ -1,20 +1,21 @@
 // == Initial State
-import recipesDataDev from 'src/data/recipes';
 
 const initialState = {
-  recipes: recipesDataDev,
+  recipes: [],
+  loading: true,
 };
 
 // == Types
-const DO_SOMETHING = 'DO_SOMETHING';
+export const FETCH_RECIPES = 'FETCH_RECIPES';
+const RECEIVE_RECIPES = 'RECEIVE_RECIPES';
 
-// == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case DO_SOMETHING:
+    case RECEIVE_RECIPES:
       return {
         ...state,
-        message: action.message,
+        recipes: action.recipes,
+        loading: false,
       };
 
     default:
@@ -23,9 +24,13 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
-export const doSomething = message => ({
-  type: DO_SOMETHING,
-  message,
+export const fetchRecipes = () => ({
+  type: FETCH_RECIPES,
+});
+
+export const receiveRecipes = recipes => ({
+  type: RECEIVE_RECIPES,
+  recipes,
 });
 
 
